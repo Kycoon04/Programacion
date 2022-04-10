@@ -11,7 +11,7 @@ int menu(double total)
 	
 	cout<< "********* Potafolio **********"<<endl <<endl;
 	cout<< "******* 1 Calculadora ********"<<endl <<endl;
-	cout<< "**** 2 Lectura de numeros ***+" <<endl <<endl; 
+	cout<< "**** 2 Lectura de numeros ****" <<endl <<endl; 
 	cout<< "********* 3 Salir ************" <<endl <<endl; 
 	cin>>option;  
 	return option; 
@@ -22,20 +22,20 @@ int menu(double total)
 int calculadora (double total)
 {
 	int opc; 
-	int num1; 
-	int num2; 
+	float num1; 
+	float num2; 
 	
 	cout <<"Digite el numero de operacion 1. Suma/ 2. resta/ 3. Multiplicación/ 4.División ";
 	cin>>opc; 
 	
 	switch (opc){
 	case 1: 
-		cout << "Digite el primer digito"; 
+		cout << "Digite el primer digito"<<endl; 
 		cin>>num1;
-		cout<<"Digite el segundo digito"; 
+		cout<<"Digite el segundo digito"<<endl; 
 		cin>>num2; 
 		
-		cout <<"El resultado en suma es: "<<num1 + num2;
+		cout <<"El resultado en suma es: "<<endl<<num1 + num2;
 		
 		break; 
 	case 2: 
@@ -45,34 +45,34 @@ int calculadora (double total)
 		cout<<"Digite el segundo digito"; 
 		cin>>num2; 
 		
-		cout <<"El resultado en resta es: "<<num1 - num2;
+		cout <<"El resultado en resta es: "<<endl<<num1 - num2;
 		
 		break; 
 	case 3: 
-		cout << "Digite el primer digito"; 
+		cout << "Digite el primer digito"<<endl; 
 		cin>>num1;
 		
-		cout<<"Digite el segundo digito"; 
+		cout<<"Digite el segundo digito"<<endl; 
 		cin>>num2; 
 		
 
-		cout<<"El resultado en multiplicacion es: "<<num1 * num2;
+		cout<<"El resultado en multiplicacion es: "<<endl<<num1 * num2;
 		
      break; 
 	case 4: 
-		cout << "Digite el primer digito"; 
+		cout << "Digite el primer digito"<<endl; 
 		cin>>num1;
 		
-		cout<<"Digite el segundo digito"; 
+		cout<<"Digite el segundo digito"<<endl; 
 		cin>>num2; 
 		
 		
-		cout <<"El resultado en division es: "<<num1 / num2;
+		cout <<"El resultado en division es: "<<endl<<num1 / num2;
 		
 		break; 
 		
 		default : 
-			cout << "Numero de operacion incorrecto";
+			cout << "Numero de operacion incorrecto"<<endl;
 			break; 
 			
 	}
@@ -87,18 +87,28 @@ int lectura(double total)
 	int unidades; 
 	
 	
-	cout<<" Digite el valor que desea leer"; 
+	cout<<" Digite el valor de dos cifras que desea leer"<<endl; 
 	cin>>valor;
-	
+
+    if (valor>9 && valor<100)
+	{
 	decenas = valor / 10; 
 	valor = valor % 10; 
 	
 	unidades = valor / 100; 
 	valor = valor % 100; 
-	
+    
+
 	cout << "el valor en decenas es : "<< decenas << endl; 
 	cout << "el valor en unidades es: "<< unidades << endl; 
+    }
+
+    else 
+    {
+        cout<<"El numero es invalido  debido a que es de 3 cifras, por favor digite el numero de nuevo";
+    }
 	return total;
+    
 }
 	
 	double process (int option, double total) {
@@ -157,4 +167,3 @@ int lectura(double total)
 		fin();
 		return 0;
 	}
-
