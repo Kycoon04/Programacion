@@ -1,1 +1,160 @@
-hola 
+#include <iostream>
+
+
+using namespace std; 
+    int menu(double total)
+    {
+        int option; 
+       
+        
+
+
+        cout<< "********* Potafolio **********"<<endl <<endl;
+        cout<< "******* 1 Calculadora ********"<<endl <<endl;
+        cout<< "**** 2 Lectura de numeros ***+" <<endl <<endl; 
+        cout<< "********* 3 Salir ************" <<endl <<endl; 
+        cin>>option;  
+        return option; 
+
+
+    }
+
+     int calculadora (double total)
+     {
+         int opc; 
+         int num1; 
+         int num2; 
+         int sol = 0; 
+
+         cout <<"Digite el numero de operacion 1. Suma/ 2. resta/ 3. Multiplicación/ 4.División ";
+         cin>>opc; 
+
+         switch (opc){
+             case 1: 
+             cout << "Digite el primer digito"; 
+             cin>>num1;
+             cout<<"Digite el segundo digito"; 
+             cin>>num2; 
+
+             sol= num1 + num2; 
+             cout <<"El resultado en suma es: ";
+
+             break; 
+             case 2: 
+             cout << "Digite el primer digito"; 
+             cin>>num1;
+
+             cout<<"Digite el segundo digito"; 
+             cin>>num2; 
+
+             sol= num1 - num2; 
+             cout <<"El resultado en resta es: ";
+
+             break; 
+             case 3: 
+             cout << "Digite el primer digito"; 
+             cin>>num1;
+
+             cout<<"Digite el segundo digito"; 
+             cin>>num2; 
+
+             sol= num1 * num2; 
+             cout <<"El resultado en multiplicacion es: ";
+
+             break; 
+             case 4: 
+             cout << "Digite el primer digito"; 
+             cin>>num1;
+
+             cout<<"Digite el segundo digito"; 
+             cin>>num2; 
+
+             sol= num1 / num2; 
+             cout <<"El resultado en division es: ";
+
+             break; 
+
+             default : 
+             cout << "Numero de operacion incorrecto";
+             break; 
+
+         }
+         return 0;
+     }
+
+
+     int lectura (double total){
+         int valor; 
+         int decenas; 
+         int unidades; 
+
+
+         cout<<" Digite el valor que desea leer"; 
+         cin>>valor;
+
+         decenas = valor / 10; 
+         valor = valor % 10; 
+
+         unidades = valor / 100; 
+         valor = valor % 100; 
+
+         cout << "el valor en decenas es : "<< decenas << endl; 
+         cout << "el valor en unidades es: "<< unidades << endl; 
+         }
+
+  double process (int option, double total) {
+  switch(option)
+  {
+      case 1: 
+      total= calculadora(total);
+      break; 
+      case 2: 
+      total= lectura(total);
+      break; 
+      case 3: 
+      cout<<endl << "Usted ha salido del sistema"<<endl<<endl;exit(0); 
+      default : 
+      cout<< "No ha resgitrado el numero correcto"<< endl<<endl; 
+      std::cin.clear();
+  
+  }
+  return total; 
+  }
+ 
+  void fin()
+{
+	cout<<endl<<"Gracias por usar los servicios de este menú espero que vuelvas pronto"<<endl<<endl;
+}
+
+  int main()
+  {
+  double  total= 0; 
+  int option, a; 
+  char c; 
+
+
+  do
+  {
+    option = menu(total); 
+    total = process(option, total);  
+
+    do {
+        cout << endl << "Desea volver al menu principal s/n: "; 
+        cin>>c;
+            a=0;
+            switch(c)
+            {
+            case 's':
+            case 'S': a=2;break;
+            case 'n':
+            case 'N':break;
+            default: cout<<endl<<"Ingrese un valor correcto"<<endl;a=1;
+            }
+
+        } while (a==1);
+        system("cls");
+    } while (a==2);
+
+   fin();
+    return 0;
+}
