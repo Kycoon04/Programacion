@@ -24,7 +24,6 @@ int calculadora (double total)
 	int opc; 
 	int num1; 
 	int num2; 
-	int sol = 0; 
 	
 	cout <<"Digite el numero de operacion 1. Suma/ 2. resta/ 3. Multiplicación/ 4.División ";
 	cin>>opc; 
@@ -36,8 +35,7 @@ int calculadora (double total)
 		cout<<"Digite el segundo digito"; 
 		cin>>num2; 
 		
-		sol= num1 + num2; 
-		cout <<"El resultado en suma es: ";
+		cout <<"El resultado en suma es: "<<num1 + num2;
 		
 		break; 
 	case 2: 
@@ -47,8 +45,7 @@ int calculadora (double total)
 		cout<<"Digite el segundo digito"; 
 		cin>>num2; 
 		
-		sol= num1 - num2; 
-		cout <<"El resultado en resta es: ";
+		cout <<"El resultado en resta es: "<<num1 - num2;
 		
 		break; 
 	case 3: 
@@ -58,10 +55,10 @@ int calculadora (double total)
 		cout<<"Digite el segundo digito"; 
 		cin>>num2; 
 		
-		sol= num1 * num2; 
-		cout <<"El resultado en multiplicacion es: ";
+
+		cout<<"El resultado en multiplicacion es: "<<num1 * num2;
 		
-		break; 
+     break; 
 	case 4: 
 		cout << "Digite el primer digito"; 
 		cin>>num1;
@@ -69,8 +66,8 @@ int calculadora (double total)
 		cout<<"Digite el segundo digito"; 
 		cin>>num2; 
 		
-		sol= num1 / num2; 
-		cout <<"El resultado en division es: ";
+		
+		cout <<"El resultado en division es: "<<num1 / num2;
 		
 		break; 
 		
@@ -160,3 +157,4 @@ int lectura(double total)
 		fin();
 		return 0;
 	}
+
