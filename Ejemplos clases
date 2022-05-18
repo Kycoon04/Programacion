@@ -1,0 +1,31 @@
+Fecha (int dia, int mes, int anyo){
+		this ->dia = dia;
+		this ->mes = mes;
+		this ->anyo = anyo;
+	}
+	void setDia (int dia)
+	{
+		this->dia = dia;
+	}
+	void setMes (int mes)
+	{
+		this->mes = mes;
+	}
+	void setAnyo (int anyo)
+	{
+		this->anyo = anyo;
+	}
+	int getDia ( )
+	{
+		return(dia);
+	}
+	int getMes ( )
+	{
+		return(mes);
+	}
+	int getAnyo ( )
+	{
+		return(anyo);
+	}
+
+};
