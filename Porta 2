@@ -108,12 +108,11 @@ int main()
 	char resp='s';
 	while (resp == 's' || resp == 'S')
 	{
-		int NU;
 		bool No = false; 
 		
 		cout<<"Digite el numero: "<<endl; 
-		cin>>NU;
-		Numero N(NU);
+		cin>>num;
+		Numero N(num);
 			
 		if(N.divDos() ) {
 			cout<<"\nEs Divisible entre 2\n";
