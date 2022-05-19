@@ -109,31 +109,42 @@ int main()
 	while (resp == 's' || resp == 'S')
 	{
 		int NU;
+		bool No = false; 
 		
-		cout<<"Valor del numero: "<<endl; 
+		cout<<"Digite el numero: "<<endl; 
 		cin>>NU;
 		Numero N(NU);
-		
-		if(N.divDos())
+			
+		if(N.divDos() ) {
 			cout<<"\nEs Divisible entre 2\n";
-		
-		if(N.divTres())
+			No = true;
+		}
+		if(N.divTres()) {
 			cout<<"\nEs Divisible entre 3\n";
-		
-		if(N.divCinco())
+		No = true;
+	    }
+		if(N.divCinco()) {
 			cout<<"\nEs Divisible entre 5\n";
-		
-		if(N.divSeis())
+			No = true;
+		}
+		if(N.divSeis()) {
 			cout<<"\nEs Divisible entre 6\n";
-		
-		if(N.divOcho())
+			No = true;
+		}
+		if(N.divOcho()) {
 			cout<<"\nEs Divisible entre 8\n";
-		
-		if(N.divNueve())
+			No = true;
+		}
+		if(N.divNueve()) {
 			cout<<"\nEs Divisible entre 9\n";
-		
-		if(N.divDiez())
+			No = true;
+		}
+		if(N.divDiez()) {
 			cout<<"\nEs Divisible entre 10\n";
+			No = true;
+		}
+		if (!No) 
+			cout<<"\nNo es Divisible entre ninguno\n";
 		
 		cout<<endl<<"Desea continuar? Digite S o N" <<endl<<endl;
 		cin>> resp;
