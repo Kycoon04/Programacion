@@ -67,6 +67,38 @@ public:
 			return false;
 		}
 	}
+	bool divOcho () {
+		int ultimoNumero= numero%1000;
+		 ultimoNumero=ultimoNumero%8;
+		if (ultimoNumero==0) {
+			return true;
+		}
+		else
+			return false;
+		}
+		bool divNueve () {
+			int suma=0;
+			int num=numero;
+			
+			while (num!=0)
+			{
+				suma+=num%10;
+				num=num/10;
+			}
+			if( (suma%9)==0 ){
+				return true;
+			}
+			else
+			   return false;
+		}
+		bool divDiez(){
+			int ultimoNumero=numero%10;
+			if (ultimoNumero== 0) {
+				return true;
+			}
+			else 
+				return false;
+		}
 };
 
 
@@ -94,9 +126,17 @@ int main()
 		if(N.divSeis())
 			cout<<"\nEs Divisible entre 6\n";
 		
+		if(N.divOcho())
+			cout<<"\nEs Divisible entre 8\n";
+		
+		if(N.divNueve())
+			cout<<"\nEs Divisible entre 9\n";
+		
+		if(N.divDiez())
+			cout<<"\nEs Divisible entre 10\n";
+		
 		cout<<endl<<"Desea continuar? Digite S o N" <<endl<<endl;
 		cin>> resp;
 	}
-	
 	return 0; 
 }
