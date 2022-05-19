@@ -1,0 +1,103 @@
+#include <iostream>
+using namespace std;
+
+class Numero {
+private:
+	int numero;
+public:
+	Numero(){
+	numero=0;
+	}
+	Numero(int num){
+		numero=num;	
+	}
+	void setNumero(int num){
+		numero=num;
+	}
+	int getNumero(){
+		return numero; 
+	}
+	bool divDos()
+	{
+		int ultimoNumero= numero%10;
+			
+		if (ultimoNumero==0 ||ultimoNumero==2 || ultimoNumero==4 ||ultimoNumero==6 ||ultimoNumero==8)
+			return true;
+		else
+			return false;
+	}
+	bool divTres()
+	{
+		int suma=0;
+		int num=numero;
+		
+		while (num!=0) 
+		{
+			suma+=num%10;
+			num=num/10;  	
+		}
+		if( (suma%3)==0 )
+			   return true;
+		else
+			return false; }
+	bool divCinco()
+	{
+		if (numero % 5 == 0) {
+		return true;
+		}
+		else {
+		return false;
+		}
+	}
+	bool divSeis(){
+		int suma=0;
+		int num=numero;
+		int ultimoNumero = numero%10;
+		
+		while (num!=0) 
+		{
+			suma+=num%10;
+			num=num/10;  	
+		}
+		if (ultimoNumero==0 ||ultimoNumero==2 || ultimoNumero==4 ||ultimoNumero==6 ||ultimoNumero==8) {
+		    if( (suma%3)==0 ) {
+			return true;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+};
+
+
+int main()
+{	
+	int num=0;
+	char resp='s';
+	while (resp == 's' || resp == 'S')
+	{
+		int NU;
+		
+		cout<<"Valor del numero: "<<endl; 
+		cin>>NU;
+		Numero N(NU);
+		
+		if(N.divDos())
+			cout<<"\nEs Divisible entre 2\n";
+		
+		if(N.divTres())
+			cout<<"\nEs Divisible entre 3\n";
+		
+		if(N.divCinco())
+			cout<<"\nEs Divisible entre 5\n";
+		
+		if(N.divSeis())
+			cout<<"\nEs Divisible entre 6\n";
+		
+		cout<<endl<<"Desea continuar? Digite S o N" <<endl<<endl;
+		cin>> resp;
+	}
+	
+	return 0; 
+}
