@@ -59,7 +59,7 @@ public:
 			suma+=num%10;
 			num=num/10;  	
 		}
-		if (ultimoNumero==0 ||ultimoNumero==2 || ultimoNumero==4 ||ultimoNumero==6 ||ultimoNumero==8 || ((suma%3)==0 )) {
+		if ((ultimoNumero==0 ||ultimoNumero==2 || ultimoNumero==4 ||ultimoNumero==6 ||ultimoNumero==8) && ((suma%3)==0 )) {
 			return true;
 			
 		}
