@@ -47,3 +47,122 @@ switch (mes) {
 		cout << dia<< "de "<<mesAnyo() << "de " << anyo << endl;
 	}
 };
+#include <iostream>
+#include <math.h>
+using namespace std;
+class Fecha {
+private:
+int dia;
+int mes;
+int anyo;
+
+public:
+	Fecha (){
+		dia = 0;
+		mes = 0;
+		anyo = 0;
+	}
+	Fecha (int dia, int mes, int anyo){
+		this ->dia = dia;
+		this ->mes = mes;
+		this ->anyo = anyo;
+	}
+	void setDia (int dia)
+	{
+		this->dia = dia;
+	}
+	void setMes (int mes)
+	{
+		this->mes = mes;
+	}
+	void setAnyo (int anyo)
+	{
+		this->anyo = anyo;
+	}
+	int getDia ( )
+	{
+		return(dia);
+	}
+	int getMes ( )
+	{
+		return(mes);
+	}
+	int getAnyo ( )
+	{
+		return(anyo);
+	}
+	string mesAnyo()
+	{
+	switch (mes) {
+	case 1: return "enero";
+	case 2: return "febrero";
+	case 3: return "marzo";
+	case 4: return "abril";
+	case 5: return "mayo";
+	case 6: return "junio";
+	case 7: return "julio";
+	case 8: return "agosto";
+	case 9: return "septiembre";
+	case 10: return "octubre";
+	case 11: return "noviembre";
+	case 12: return "diciembre";  
+	default: return "mes invalido"; 
+	}
+	void  imprimeFecha (){
+		cout << dia()<< "de "<<mesAnyo() << "de " << anyo() << endl;
+	}
+	}
+	bool bisiesto () {
+		int anyo;
+		
+		if (anyo % 4 == 0)
+			return true;
+		else
+			return false;
+	}
+		
+	int  diasMes()  {
+	if (mes == 4 || mes == 6 || mes == 9 || mes == 11){
+		return 30;
+	}else{
+		}if (mes == 2){
+			if ( bisiesto( ) ) {
+				return 29;
+	            }else {
+					return 28;
+			    }
+	    }else
+			return 31;
+	}
+	void incrementaDia() 	
+	{
+		if (dia < diasMes())
+			dia++;
+		else  { 
+			dia = 1;
+			if (mes < 12)
+				mes++;
+			else  {
+				mes = 1;
+				anyo++;
+			}
+		}
+	}
+	
+};
+int main(int argc, char *argv[]) {
+	int a;
+	
+	cout<<"Ingrese día, mes y año "<<endl; 
+	cin>>a;
+	Fecha Fech(a);
+	
+	Fech.setDia(a);
+		cout<<"Los dias del mes son"<<Fech.diasMes()<<endl;
+		
+	Fech.setMes(a);
+		cout<<"El mes es:"<<Fech.getMes()<<endl;
+	
+	if(Fech.bisiesto());
+	cout<<"\nEs año bisiesto\n";
+}
