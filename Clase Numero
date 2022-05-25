@@ -87,3 +87,16 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 	
+cout<<"Numeros amigos"<<endl;
+	cout<<"Valor del primer numero: "<<endl<<endl; 
+	cin>>N1; 
+	Numero num2(N1);
+	cout<<"Valor del segundo numero: "<<endl<<endl; 
+	cin>>N2; 
+	Numero num3(N2); 
+	
+	if ((num2.getValor()==num3.sumaDivisoresPropios())&& (num3.getValor()==num2.sumaDivisoresPropios())) {
+		cout<<"Los numeros "<<num2.getValor()<<" y "<<num3.getValor()<<" son amigos"; 
+	}else{ 
+		cout<<"Los numeros "<<num2.getValor()<<" y "<<num3.getValor()<<" NO son amigos"; 
+    }
