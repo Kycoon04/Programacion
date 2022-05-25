@@ -41,6 +41,16 @@ public:
 		else 
 			return (-valor); 
 	} 
+	void NumMen() {
+		
+		for(int i=1; i<valor; i++) 
+			cout<<i<<" ";
+	}
+	void NumPares() {
+		for (int i=1; i <valor; i++) 
+		if (i%2 ==0) 
+			cout<<i<<" "; 
+	}
 	
 	
 } ;
@@ -66,23 +76,14 @@ int main(int argc, char *argv[]) {
 	cin>>c;
 	num1.setValor(c);
 	cout<<"El valor absoluto es: "<<num1.absoluto()<<endl;
+	cout<<"Los numeros anteriores son: "<<num1.getValor()<<endl;
+	num1.NumMen(); 
+	num1.setValor(c);
+	
+	cout<<endl<<"Los numeros anteriores pares son: "<<num1.getValor()<<endl;
+	num1.NumPares();
 	
 	cout<<"El valor que tengo agregado:"<<num1.getValor()<<endl;
   return 0;
 }
 	
-void listarNumeros()
-	{
-	int i=0;
-	while (i<valor){
-		cout<<i<<" ";
-	    i++;
-	}
-	}
-	
-	cout<<"Ingrese la cantidad de numeros que quiere realizar en el listado"<<endl;
-	cin>>lis;
-	
-	num1.setValor(lis);
-	cout<<"El listado es:"<<num1.getValor()<<endl;
-	num1.listarNumeros();
