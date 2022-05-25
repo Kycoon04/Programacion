@@ -71,3 +71,18 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 	
+void listarNumeros()
+	{
+	int i=0;
+	while (i<valor){
+		cout<<i<<" ";
+	    i++;
+	}
+	}
+	
+	cout<<"Ingrese la cantidad de numeros que quiere realizar en el listado"<<endl;
+	cin>>lis;
+	
+	num1.setValor(lis);
+	cout<<"El listado es:"<<num1.getValor()<<endl;
+	num1.listarNumeros();
