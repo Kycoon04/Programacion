@@ -1,0 +1,108 @@
+#include <iostream>
+using namespace std;
+
+class Fecha {
+private:
+	int dia;
+	int mes;
+	int anyo;
+	
+public:
+	Fecha (){
+		dia = 0;
+		mes = 0;
+		anyo = 0;
+	}
+	Fecha (int dia, int mes, int anyo){
+		this ->dia = dia;
+		this ->mes = mes;
+		this ->anyo = anyo;
+	}
+		void setDia (int dia)
+		{
+			this->dia = dia;
+		}
+		void setMes (int mes)
+		{
+			this->mes = mes;
+		}
+		void setAnyo (int anyo)
+		{
+			this->anyo = anyo;
+		}
+		int getDia ( )
+		{
+			return(dia);
+		}
+		int getMes ( )
+		{
+			return(mes);
+		}
+		int getAnyo ( )
+		{
+			return(anyo);
+		}
+		string mesAnyo()
+		{
+			switch (mes) {
+			case 1: return "enero";
+			case 2: return "febrero";
+			case 3: return "marzo";
+			case 4: return "abril";
+			case 5: return "mayo";
+			case 6: return "junio";
+			case 7: return "julio";
+			case 8: return "agosto";
+			case 9: return "septiembre";
+			case 10: return "octubre";
+			case 11: return "noviembre";
+			case 12: return "diciembre";  
+			default: return "mes invalido"; 
+			}
+		}
+		bool bisiesto(){
+			if((anyo%4 == 0) && (anyo%100 != 0 || anyo%400 == 0))
+				return true;
+			else
+				return false;
+		}
+		int  diasMes() {
+			if (mes == 4 || mes == 6 || mes == 9 || mes == 11)
+				return 30;
+			else
+				if (mes == 2)
+					if ( bisiesto( ) ) 
+						return 29;
+					else 
+						return 28;
+				else
+					return 31;
+		}
+		
+};
+int main(int argc, char *argv[]) {
+	
+	int dia = 0;
+	int mes = 0;
+	int anyo = 0;
+	
+	cout<<"Introduzca el numero de dia: ";
+	cin>>dia; 
+	cout<<"Introduzca el numero de mes: ";
+	cin>>mes; 
+	cout<<"Introduzca el numero de año: ";
+	cin>>anyo; 
+	
+	 Fecha m(dia,mes,anyo);
+	 
+	 cout<<endl<<m.mesAnyo();
+	 
+	 if (m.bisiesto())
+		cout<<endl<<endl<<"El año es bisiesto";
+	 else 
+		cout<<endl<<endl<<"El año no es bisiesto";
+	 
+	 cout<<endl<<m.diasMes();
+	 
+	return 0;
+}
