@@ -130,15 +130,19 @@ public:
 			}
 		}
 		void  imprimeFecha (){
-			cout << dia<< "de "<<mesAnyo() << "de " << anyo << endl;
-		}
-		void CompararFecha(){
-
+			cout << dia<< " de "<<mesAnyo() << " de " << anyo << endl;
 		}
 		void RestAnno(int anyo1 ) {
 			int Total;
+			
+			if (anyo1 < anyo) {
+				Total= anyo - anyo1;
+				cout<<Total;
+			}
+			else {
 				Total= anyo1 - anyo;
-			cout<<Total;
+				cout<<Total;
+			}
 		}
 		void RestMes(int mes1) {
 			int Total;
@@ -158,6 +162,7 @@ public:
 			if (dia1 < dia) { 
 				Total= dia - dia1;
 				cout<<Total;
+				
 			}
 			else {
 				Total= dia1 - dia;
@@ -198,7 +203,8 @@ int main(int argc, char *argv[]) {
 	 cin>>resp;
 	 m.imprimeFecha();
 	 m.Seleccion(resp);
-	 m.imprimeFecha();
+	 cout<<endl<<"Su nueva fecha es: "<<endl;
+		 m.imprimeFecha();
 	 
 	 cout<<"Introduzca el numero de dia: ";
 	 cin>>dia1; 
