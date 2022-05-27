@@ -108,10 +108,10 @@ public:
 			cin>> Nu;
 			
 			for(int i=1; i <=Nu; i++) {
-			if (dia > 0)
+			if (dia > 1)
 				dia--;
 			else  { 
-				if (mes > 0)
+				if (mes > 1)
 					mes--;
 				else  {
 					mes = 1;
@@ -132,15 +132,49 @@ public:
 		void  imprimeFecha (){
 			cout << dia<< "de "<<mesAnyo() << "de " << anyo << endl;
 		}
-		
+		void CompararFecha(){
+
+		}
+		void RestAnno(int anyo1 ) {
+			int Total;
+				Total= anyo1 - anyo;
+			cout<<Total;
+		}
+		void RestMes(int mes1) {
+			int Total;
+			
+			if (mes1 < mes) { 
+				Total= mes - mes1;
+				cout<<Total;
+			}
+			else {
+				Total= mes1 - mes;
+				cout<<Total;
+			}
+		}
+		void RestDia(int dia1) {
+			int Total;
+			
+			if (dia1 < dia) { 
+				Total= dia - dia1;
+				cout<<Total;
+			}
+			else {
+				Total= dia1 - dia;
+				cout<<Total;
+			}
+		}
 };
 int main(int argc, char *argv[]) {
 	
 	int dia = 0;
 	int mes = 0;
 	int anyo = 0;
-	int resp = 0; 
+	int resp = 0;
 	
+	int dia1 = 0;
+	int mes1 = 0;
+	int anyo1 = 0;
 	
 	cout<<"Introduzca el numero de dia: ";
 	cin>>dia; 
@@ -149,7 +183,7 @@ int main(int argc, char *argv[]) {
 	cout<<"Introduzca el numero de año: ";
 	cin>>anyo; 
 	 Fecha m(dia,mes,anyo);
-	 
+	  
 	 
 	 cout<<endl<<"Su mes en palabra es: "<<m.mesAnyo();
 	 
@@ -160,13 +194,26 @@ int main(int argc, char *argv[]) {
 	 
 	 cout<<endl<<endl<<"Su mes tiene: "<<m.diasMes()<<" días";
 	 
-	 cout<<endl<<"Seleccione 1 para Aumentar y 2 Para disminuir: ";
+	 cout<<endl<<"Seleccione 1 para Aumentar y 2 Para disminuir una fecha con un numero: ";
 	 cin>>resp;
 	 m.imprimeFecha();
 	 m.Seleccion(resp);
 	 m.imprimeFecha();
 	 
+	 cout<<"Introduzca el numero de dia: ";
+	 cin>>dia1; 
+	 cout<<"Introduzca el numero de mes: ";
+	 cin>>mes1; 
+	 cout<<"Introduzca el numero de año: ";
+	 cin>>anyo1; 
+	 Fecha m1(dia1,mes1,anyo1);
+	 
+	cout<<endl<<"La diferencia de años es ";
+	m.RestAnno(anyo1);
+	cout<<endl<<"La diferencia de meses es ";
+	m.RestMes(mes1);
+	cout<<endl<<"La diferencia de dias es ";
+	m.RestDia(dia1);
+	
 	return 0;
 }
-
-
