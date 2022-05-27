@@ -1,0 +1,179 @@
+#include <iostream>
+using namespace std;
+class fecha {
+	private :
+		
+	 int dia; 
+	 int mes; 
+	 int anyo; 
+
+public : 
+
+	fecha(){
+		
+	 int dia = 0; 
+	 int mes = 0; 
+	 int anyo = 0; 
+	}
+	 fecha (int dia, int mes, int anyo)
+	 { this -> dia = dia;
+	 this -> mes = mes;
+	 this -> anyo = anyo;
+	}
+	
+	 // metodos set
+	 void setDia (int dia	)
+	 {
+		 this->dia = dia;
+	 }
+	 // metodos set
+	 void setMes (int mes	)
+	 {
+		 this->mes = mes;
+	 }
+	 // metodos set
+	 void setAnyo (int anyo)
+	 {
+		 this->anyo = anyo;
+	 }
+	 //___________________________
+	 
+	 
+	 // metodo get 
+	 int getDia ()
+	 {
+		return (dia);
+	 }
+	 // metodos get
+	 int getMes ()
+	 {
+		return (mes);
+	 }
+	 // metodos get
+	 int getAnyo ()
+	 {
+		return (anyo);
+	 }
+	 // metodo de calculo switch 
+	 string mesAnyo (){
+	 switch (mes){ 
+	 case 1: return "enero"; break; 
+	 case 2: return "febrero"; break; 
+	 case 3: return "marzo"; break; 
+	 case 4: return "abril"; break; 
+	 case 5: return "mayo"; break; 
+	 case 6: return "junio"; break; 
+	 case 7: return "julio"; break; 
+	 case 8: return "agosto"; break; 
+	 case 9: return "septiembre"; break; 
+	 case 10: return "octubre"; break; 
+	 case 11: return "noviembre"; break;
+	 case 12: return "diciembre"; break;
+	 default: return "mes invalido"; break;
+	 }
+	 }
+	 
+	 bool bisiesto (){
+		 int anyo = 0; 
+	 
+	 if (anyo % 4 == 0 )
+		 return true; 
+	 else 
+		 return false; 
+	 }
+	
+	int diames (){ 
+		if (mes == 4 || mes == 6 || mes == 9 || mes == 11)
+			return 30; 
+		else 
+			if (mes == 2)
+			 if (bisiesto())
+				 return 29; 
+			 else 
+				 return 28; 
+			else 
+				return 31; 
+	}
+
+		void aumentardia (){
+			
+			int nu; 
+			
+			 cout<<"Digite la cantidad de dias que desea sumar"<<endl: 
+			cin>>nu; 
+			 
+			 
+		for (i= 1, i< nu; i++){
+			if (dia < diames())
+				dia++;}
+			else{
+				dia = 1; 
+				if (mes < 12){
+					mes ++ ; }
+				else { 
+					mes = 1;
+						anyo ++;}
+				}
+			}
+		}
+			void  disminuirdia (){
+	          int nu; 
+			  
+	           cout<<"Digite la cantidad de dias que desea restarle"<<endl: 
+			   cin>>nu; 
+	
+	
+		for (i= 1, i< nu; i--){
+			if (dia > 0)
+				dia--;}
+			else{
+				if (mes > 0){
+				    mes -- ; }
+				else { 
+					anyo = 1;
+					  mes --;}
+				}
+			mes = diames(); 
+            }
+			}
+
+	void selection (int resp) 
+	{ 
+		switch (resp){
+	           case 1 : aumentardia(); break; 
+	           case 2 : disminuirdia(); break; 
+	           default: cout<<"Ingrese un valor correctto"<<endl; break;
+	}
+	}
+   void imprimirfecha(){ 
+	   cout<<dia<<" de "<<mesanyo<<" de "<<anyo<<endl<<endl; 
+   }
+};
+int main(int argc, char *argv[]) {
+	
+	int dia = 0;
+	int mes = 0;
+	int anyo = 0;
+	
+	cout<<"Introduzca el Dia: "<<endl;
+	cin>>dia; 
+	cout<<"Introduzca el Mes: "<<endl;
+	cin>>mes; 
+	cout<<"Introduzca el Año: "<<endl;
+	cin>>anyo; 
+	
+	fecha m(dia,mes,anyo);
+	
+	cout<<"El mes es: "<<m.mesAnyo();
+	
+	if (m.bisiesto())
+		cout<<endl<<endl<<"El año es bisiesto"<<endl<<endl;
+	else 
+		cout<<endl<<endl<<"El año no es bisiesto"<<endl<<endl;
+	
+	cout<<endl<<m.diames();
+	
+	
+	return 0;
+
+}
