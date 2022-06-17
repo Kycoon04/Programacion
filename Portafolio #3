@@ -1,0 +1,113 @@
+#include <iostream>
+using namespace std;
+
+class ViajeTren { 
+private: 
+	int vector[50]; 
+	int tamano; 
+	int cantidad; 
+public:
+	
+ViajeTren() { 
+	cantidad=0; 
+	tamano= 50; 
+	for(int i=0;i< tamano;i++)
+	vector[i]=0;
+}
+	
+ViajeTren(int n) { 
+	cantidad=0; 
+	tamano= n; 
+	for(int i=0;i< tamano;i++)
+	vector[i]=0;
+}
+	
+int getCantidad(){
+	return cantidad;
+}
+	
+int getTamano(){ 
+	return tamano; 
+}
+	
+void setCantidad(int can){  
+	if ((can < tamano)&&(can >0))
+	cantidad = can;      
+}
+	
+void setTamano(int ptamano){ 
+	tamano = ptamano; 
+} 
+	
+void insertarElemento(int elem ) { 
+	if (cantidad < tamano)
+	{	vector[cantidad]=elem; 
+	setCantidad(cantidad+1); 
+	}
+}
+
+void reservar(){
+	
+	
+	
+}
+
+void canAsientosreservadosConElectricidad() {
+	
+	
+	
+}
+
+
+void canAsientosreservadosSinElectricidad(){
+	
+	
+	
+	
+}
+	
+void compara() {
+	
+	
+	
+}
+};
+
+int main() {
+	
+	int x;
+	
+	do {
+		int n;
+		cout<<"Que tamano desea para el arreglo?"<<endl; 
+		cin>>n; 
+		ViajeTren ViajeTren1(n);
+		
+		if (ViajeTren1.getTamano() < n){
+			cout<<"El valor no es posible";
+			x = 1;
+		}
+		else { 
+			int num,cont;
+			char elem;
+			cout<<"cuántos elementos desea agregar? ";
+			cin>>num;
+			cont=0; 
+			while (ViajeTren1.getCantidad()< ViajeTren1.getTamano() && cont<num)
+			{ cout<<"digite el valor del elemento "<<cont+1<<": "; 
+			cin>>elem; 
+			ViajeTren1.insertarElemento(elem);
+			cont++;
+			}
+			
+			
+			
+			
+			
+			
+			
+		}
+	}while (x == 1);
+	
+return 0;
+}
