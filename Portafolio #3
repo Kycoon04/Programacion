@@ -3,7 +3,7 @@ using namespace std;
 
 class ViajeTren { 
 private: 
-	int Asientos[10]; 
+	bool asientos[10]; 
 	int tamano; 
 	int cantidad; 
 public:
@@ -12,14 +12,14 @@ ViajeTren() {
 	cantidad=0; 
 	tamano= 10; 
 	for(int i=0;i< tamano;i++)
-	Asientos[i]=0;
+	asientos[i]=0;
 }
 	
 ViajeTren(int n) { 
 	cantidad=0; 
 	tamano= n; 
 	for(int i=0;i< tamano;i++)
-	Asientos[i]=0;
+	asientos[i]=0;
 }
 	
 int getCantidad(){
@@ -41,94 +41,136 @@ void setTamano(int ptamano){
 	
 void insertarElemento(int elem ) { 
 	if (cantidad < tamano)
-	{	Asientos[cantidad]=elem; 
+	{	asientos[cantidad]=elem; 
 	setCantidad(cantidad+1); 
 	}
 }
 
-void reservar(){
-	
-	int eletricidad;
-	int ValorViaje; 
-	
-	cout<<"En que viaje desea ir? "<<endl; 
-	cout<<"Viaje 1 (1) "<<endl; 
-	cout<<"Viaje 2 (2) "<<endl;
-	cin>>ValorViaje;
-	
-	switch(ValorViaje) {
-	case 1: 
-		cout<<"Asiento con eletricidad (1) "<<endl; 
-		cout<<endl<<"Asiento sin eletricidad (2) "<<endl; 
-		cin>>eletricidad;
-		switch (eletricidad) {
-		case 1: 
-		case 2: 
-		default: break;
-		}
-		
-		
-	case 2: 
-		
-		
-		
-		
-	default: break;
+void Reservar(int asiento){
+		if (asientos[asiento]==asiento) {
+			cout<<endl<<"El asiento se encuentra ocupado"<<endl;
 	}
-	
-}
-
-void canAsientosreservadosConElectricidad() {
-	
-	
-	
-}
-
-
-void canAsientosreservadosSinElectricidad(){
-	
-	
-	
-	
+	else {
+		asientos[asiento] = true; 
+		cout<<endl<<"Se reservo su asiento satifactoriamente"<<endl; 
+	}
 }
 	
-void compara() {
+int Reservas(){
+	int cant = 0;
+	for(int i = 0; i < 10; i++){
+		if(asientos[i] == true)
+			cant++;
+	}
+	return cant;
+}
 	
+void hacerReserva(){
+	for(int i = 0; i < 10; i++){
+		if(asientos[i] == false){
+			cout<<i;
+			if(i % 2 == 0)
+				cout<<" Asiento Con Electricidad"<<endl<<endl;
+			else
+				cout<<" Asiento Sin Electricidad"<<endl<<endl;
+		}
+	}
+	int asiento = 0;
+	cout<<"Ingrese el numero del asiento en el que desea estar: ";
+	cin>>asiento;
+	Reservar(asiento);
+	}
+
+int canAsientosreservadosConElectricidad() {
+int cant = 0;
+	for(int i = 0; i < 10; i++){
+		if(asientos[i] == true && i % 2 == 0)
+			cant++;
+	}
+	return cant;
+}
+
+int canAsientosreservadosSinElectricidad(){
+int cant = 0;
+	for(int i = 0; i < 10; i++){
+		if(asientos[i] == true && i % 2 != 0)
+			cant++;
+	}
+	return cant;
+}
 	
-	
+void compara(ViajeTren obj){
+	int estasReservas = Reservas(), otrasReservas = obj.Reservas();
+	if(estasReservas > otrasReservas)
+		cout<<"El tren 1 tiene mas reservas"<<endl;
+	else if(estasReservas < otrasReservas)
+		cout<<"El tren 2 tiene mas reservas"<<endl;
+	else
+		cout<<"Ambos tienen la misma cantidad de reservas"<<endl;
 }
 };
 
 int main() {
 	
+	ViajeTren ViajeTren1 = ViajeTren(), ViajeTren2 = ViajeTren();
 	
-	int n;
-	ViajeTren ViajeTren1(n);
 	char resp='s';
 	while (resp == 's' || resp == 'S')
 	{
-
 	int opcion;
+	char opcion2;
 	cout<<endl<<"-------------MENU DE PORTAFOLIO--------------"<<endl;
 	cout<<"---------------------------------------------"<<endl<<endl;
 	cout<<"..................Resevar..................(1)"<<endl;
-	cout<<"............Asientos reservados............(2)"<<endl;
-	cout<<"...................Salir...................(3)"<<endl;
+	cout<<"...Asientos apartados con electricidad.....(2)"<<endl;
+	cout<<"...Asientos apartados sin electricidad.....(3)"<<endl;
+	cout<<".......Reservaciones en ambos trenes.......(4)"<<endl;
+	cout<<"...................Salir...................(5)"<<endl;
 	cout<<endl<<"Elija el proceso que quiera reaizar: ";
 	cin>>opcion;
 	
 	switch (opcion) {
 	case 1: 
-		ViajeTren1.reservar();
-		cout<<ViajeTren1.getCantidad(); 
+		do{
+			cout<<"Reservar en tren 1...........(1)"<<endl;
+			cout<<endl<<"Reservar en tren 2...........(2) ";
+			cin>>opcion2;
+		} while(opcion2 != '1'  && opcion2 != '2');
+		
+		if(opcion2 == '1')
+			
+			ViajeTren1.hacerReserva();
+		else if(opcion2 == '2')
+			
+			ViajeTren2.hacerReserva();
+		break;
 	case 2: 
+		cout<<endl<<"---------------------------Tren 1------------------------------"<<endl;
+		cout<<"Cantidad de Asientos reservados con electricidad de ViajeTren1 "<<ViajeTren1.canAsientosreservadosConElectricidad()<<endl<<endl;
+		cout<<"---------------------------Tren 2------------------------------"<<endl;
+		cout<<"Cantidad de Asientos reservados con electricidad de ViajeTren2 "<<ViajeTren2.canAsientosreservadosConElectricidad()<<endl<<endl;
+		break;
 	case 3: 
-	default:break;
+		cout<<endl<<"---------------------------Tren 1------------------------------"<<endl;
+		cout<<"Cantidad de Asientos reservados sin electricidad de ViajeTren1 "<<ViajeTren1.canAsientosreservadosSinElectricidad()<<endl<<endl;
+		cout<<"---------------------------Tren 2------------------------------"<<endl;
+		cout<<"Cantidad de Asientos reservados sin electricidad de ViajeTren2 "<<ViajeTren2.canAsientosreservadosSinElectricidad()<<endl<<endl;
+		break;
+	case 4:
+		ViajeTren1.compara(ViajeTren2);
+		break;
+	case 5:
+		exit(1);
+	default:
+	cout<<"Esta opcion no esta disponible"<<endl;
+	break;
 		
 	}
+	
 	cout<<endl<<"Desea continuar? Digite S o N" <<endl<<endl;
 	cin>> resp;
 	system("cls");
 	}
 return 0;
 }
+
