@@ -67,10 +67,9 @@ class coleccion{
     
 };
 int main(){
-    int x,n;
     
-    coleccion A1(n);
-    coleccion B1(x);
+    coleccion (n);
+    coleccion (x);
 
     return 0;
 }
