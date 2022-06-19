@@ -1,0 +1,74 @@
+#include <iostream>
+#include <unistd.h>
+using namespace std;
+
+#define tam 10
+
+const int rosa = 1000;
+const int hortencias = 2000;
+const int tulipnaes = 3000;
+const int helechos = 500;
+
+class coleccion{
+    private:
+
+    int m[tam][tam];
+
+    public :
+
+
+    coleccion() {
+       for (int i=0;i<tam;i ++){
+        for (int j=0;j<tam;j++){
+            this->m[i][j] = rand() % 4;
+        }
+       }
+    }
+    // valores aleatorios 5
+   void llenarAleatorio(){
+    for (int i=0;i<tam;i ++){
+        for (int j=0;j<tam;j++){
+            this->m[i][j] = rand() % 4;
+        }
+       }
+   }
+ // metodo de insertar
+   void insertar (int i, int c, int elemento){
+                this->m[i][c] = elemento;
+   }
+ // eliminar planta
+    int eliminarPlanta(int i, int c){
+        int aux = this -> m[i][c];
+        this -> m[i][c] = -1;
+        return aux;
+    }
+ // limpiar terreno -1
+    void limpiarTerreno(){
+        for (int i=0;i<tam;i++){
+            for(int j=0;j<tam;j++){
+                this->m[i][j]= -1;
+            }
+        }
+    }
+
+// metodo sleep();
+    
+    void sleep(unsigned milliseconds)
+        {
+            usleep(milliseconds * 1000); // takes microseconds
+        }
+   
+// para cambiar de estado if {sleep (declarar estado de semilla) ejecutar cambio de estado
+
+
+
+    
+};
+int main(){
+    int x,n;
+    
+    coleccion A1(n);
+    coleccion B1(x);
+
+    return 0;
+}
