@@ -1,5 +1,5 @@
 #include <iostream>
-#include <unistd.h>
+#include <windows.h>
 using namespace std;
 
 #define tam 10
@@ -53,10 +53,12 @@ class coleccion{
 
 // metodo sleep();
     
+
+
     void sleep(unsigned milliseconds)
-        {
-            usleep(milliseconds * 1000); // takes microseconds
-        }
+    {
+        Sleep(milliseconds);
+    }
    
 // para cambiar de estado if {sleep (declarar estado de semilla) ejecutar cambio de estado
 
