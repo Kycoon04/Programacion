@@ -11,14 +11,14 @@ public:
 ViajeTren() { 
 	cantidad=0; 
 	tamano= 10; 
-	for(int i=0;i< tamano;i++)
+	for(int i=0;i < tamano;i++)
 	asientos[i]=0;
 }
 	
 ViajeTren(int n) { 
 	cantidad=0; 
 	tamano= n; 
-	for(int i=0;i< tamano;i++)
+	for(int i=0;i < tamano;i++)
 	asientos[i]=0;
 }
 	
@@ -35,7 +35,7 @@ void setCantidad(int can){
 	cantidad = can;      
 }
 	
-void setTamano(int ptamano){ 
+void setTamano(int ptamano){ e
 	tamano = ptamano; 
 } 
 	
@@ -46,16 +46,6 @@ void insertarElemento(int elem ) {
 	}
 }
 
-void Reservar(int asiento){
-		if (asientos[asiento]==asiento) {
-			cout<<endl<<"El asiento se encuentra ocupado"<<endl;
-	}
-	else {
-		asientos[asiento] = true; 
-		cout<<endl<<"Se reservo su asiento satifactoriamente"<<endl; 
-	}
-}
-	
 int Reservas(){
 	int cant = 0;
 	for(int i = 0; i < 10; i++){
@@ -65,7 +55,7 @@ int Reservas(){
 	return cant;
 }
 	
-void hacerReserva(){
+void Reserva(){
 	for(int i = 0; i < 10; i++){
 		if(asientos[i] == false){
 			cout<<i;
@@ -78,7 +68,13 @@ void hacerReserva(){
 	int asiento = 0;
 	cout<<"Ingrese el numero del asiento en el que desea estar: ";
 	cin>>asiento;
-	Reservar(asiento);
+	if ((asientos[asiento] == true)) {
+		cout<<endl<<"El asiento se encuentra ocupado"<<endl;
+	}
+	else {
+		asientos[asiento] = true; 
+		cout<<endl<<"Se reservo su asiento satifactoriamente"<<endl; 
+	}
 	}
 
 int canAsientosreservadosConElectricidad() {
@@ -139,10 +135,10 @@ int main() {
 		
 		if(opcion2 == '1')
 			
-			ViajeTren1.hacerReserva();
+			ViajeTren1.Reserva();
 		else if(opcion2 == '2')
 			
-			ViajeTren2.hacerReserva();
+			ViajeTren2.Reserva();
 		break;
 	case 2: 
 		cout<<endl<<"---------------------------Tren 1------------------------------"<<endl;
