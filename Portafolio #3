@@ -1,49 +1,41 @@
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 class ViajeTren { 
 private: 
-	bool asientos[10]; 
+	int asientos[10]; 
+	string horaSalida;
 	int tamano; 
 	int cantidad; 
 public:
 	
-ViajeTren() { 
-	cantidad=0; 
-	tamano= 10; 
-	for(int i=0;i < tamano;i++)
-	asientos[i]=0;
+ViajeTren(){
+	this->horaSalida = "12:00 md";
+	for(int i = 0; i < 10; i++)
+		asientos[i] = false;
 }
 	
-ViajeTren(int n) { 
-	cantidad=0; 
-	tamano= n; 
-	for(int i=0;i < tamano;i++)
-	asientos[i]=0;
+ViajeTren(string horaSalida){
+	this->horaSalida = horaSalida;
+	for(int i = 0; i < 10; i++)
+		asientos[i] = false;
 }
 	
-int getCantidad(){
-	return cantidad;
+void setHoraSalida(string horaSalida){
+	this->horaSalida = horaSalida;
 }
-	
-int getTamano(){ 
-	return tamano; 
-}
-	
-void setCantidad(int can){  
-	if ((can < tamano)&&(can >0))
-	cantidad = can;      
-}
-	
-void setTamano(int ptamano){ e
-	tamano = ptamano; 
+		
+	string getHoraSalida(){
+		return horaSalida;
 } 
-	
-void insertarElemento(int elem ) { 
-	if (cantidad < tamano)
-	{	asientos[cantidad]=elem; 
-	setCantidad(cantidad+1); 
+
+string toString(){
+	stringstream s;
+	for(int i=0;i<cantidad;i++) {
+		s<< "elemento "<<i<<" es: "<<asientos[i]<<endl; 
 	}
+	return s.str();
 }
 
 int Reservas(){
@@ -56,24 +48,43 @@ int Reservas(){
 }
 	
 void Reserva(){
-	for(int i = 0; i < 10; i++){
-		if(asientos[i] == false){
-			cout<<i;
-			if(i % 2 == 0)
-				cout<<" Asiento Con Electricidad"<<endl<<endl;
-			else
-				cout<<" Asiento Sin Electricidad"<<endl<<endl;
-		}
-	}
+	
+	cout<<"Asiento Con Electricidad....1"<<endl<<endl;
+	
+	cout<<"Asiento Sin Electricidad....2"<<endl<<endl;
+	
 	int asiento = 0;
-	cout<<"Ingrese el numero del asiento en el que desea estar: ";
+	cout<<"Que asiento desea: ";
 	cin>>asiento;
-	if ((asientos[asiento] == true)) {
-		cout<<endl<<"El asiento se encuentra ocupado"<<endl;
-	}
-	else {
-		asientos[asiento] = true; 
-		cout<<endl<<"Se reservo su asiento satifactoriamente"<<endl; 
+	switch (asiento){
+	case 1:
+		for(int i = 0; i < 10; i+=2) {
+			if ((asientos[i] == false)) {
+				asientos[i] = true; 
+				cout<<endl<<"Se reservo su asiento satifactoriamente"<<endl;break; 
+			}  
+			else {
+				if (i >= 8) {
+					cout<<endl<<"El asiento se encuentra ocupado"<<endl;
+				}
+			}
+		}
+		break; 
+	case 2:
+		for(int i = 1; i < 10; i+=2) {
+			if ((asientos[i] == false)) {
+				asientos[i] = true; 
+				cout<<endl<<"Se reservo su asiento satifactoriamente"<<endl;break; 
+			}
+			else {
+				if (i >= 9)  {
+					cout<<endl<<"El asiento se encuentra ocupado"<<endl;
+				}
+			}
+		}
+		break;
+	default:cout<<endl<<"Digite un valor correcto"<<endl;
+	break;
 	}
 	}
 
@@ -98,9 +109,9 @@ int cant = 0;
 void compara(ViajeTren obj){
 	int estasReservas = Reservas(), otrasReservas = obj.Reservas();
 	if(estasReservas > otrasReservas)
-		cout<<"El tren 1 tiene mas reservas"<<endl;
+		cout<<"El tren 1 de las "<<horaSalida<<" tiene mas reservas"<<endl;
 	else if(estasReservas < otrasReservas)
-		cout<<"El tren 2 tiene mas reservas"<<endl;
+		cout<<"El tren 2 de las "<<obj.getHoraSalida()<<" tiene mas reservas"<<endl;
 	else
 		cout<<"Ambos tienen la misma cantidad de reservas"<<endl;
 }
@@ -110,6 +121,17 @@ int main() {
 	
 	ViajeTren ViajeTren1 = ViajeTren(), ViajeTren2 = ViajeTren();
 	
+	string horas;
+	cout<<endl<<"--------------Hora Tren 1--------------"<<endl;
+	cout<<"Ingrese la hora de partida del tren 1: ";
+	cin>>horas;
+	cout<<"---------------------------------------"<<endl;
+	ViajeTren1.setHoraSalida(horas);
+	cout<<endl<<"--------------Hora Tren 2--------------"<<endl;
+	cout<<"Ingrese la hora de partida del tren 2: ";
+	cin>>horas;
+	ViajeTren2.setHoraSalida(horas);
+	system("cls");
 	char resp='s';
 	while (resp == 's' || resp == 'S')
 	{
@@ -136,9 +158,12 @@ int main() {
 		if(opcion2 == '1')
 			
 			ViajeTren1.Reserva();
-		else if(opcion2 == '2')
+		
+		else 
+		if(opcion2 == '2')
 			
-			ViajeTren2.Reserva();
+		ViajeTren2.Reserva();
+		
 		break;
 	case 2: 
 		cout<<endl<<"---------------------------Tren 1------------------------------"<<endl;
@@ -162,7 +187,7 @@ int main() {
 	break;
 		
 	}
-	
+
 	cout<<endl<<"Desea continuar? Digite S o N" <<endl<<endl;
 	cin>> resp;
 	system("cls");
