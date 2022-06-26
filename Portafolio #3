@@ -4,7 +4,7 @@ using namespace std;
 
 class ViajeTren { 
 private: 
-	int asientos[10]; 
+	bool asientos[10]; 
 	string horaSalida;
 	int tamano; 
 	int cantidad; 
@@ -28,7 +28,19 @@ void setHoraSalida(string horaSalida){
 		
 	string getHoraSalida(){
 		return horaSalida;
-} 
+}
+		int getCantidad()
+		{return cantidad;}
+		
+		int getTamano()
+		{ return tamano; }
+		
+		void setCantidad(int can) 
+		{  if ((can < tamano)&&(can >0))
+			cantidad = can;      }
+		
+		void setTamano(int ptamano)
+		{ tamano = ptamano; } 
 
 string toString(){
 	stringstream s;
@@ -49,9 +61,9 @@ int Reservas(){
 	
 void Reserva(){
 	
-	cout<<"Asiento Con Electricidad....1"<<endl<<endl;
+	cout<<"Asiento Con Electricidad....(1)"<<endl<<endl;
 	
-	cout<<"Asiento Sin Electricidad....2"<<endl<<endl;
+	cout<<"Asiento Sin Electricidad....(2)"<<endl<<endl;
 	
 	int asiento = 0;
 	cout<<"Que asiento desea: ";
@@ -84,6 +96,7 @@ void Reserva(){
 		}
 		break;
 	default:cout<<endl<<"Digite un valor correcto"<<endl;
+	
 	break;
 	}
 	}
@@ -155,15 +168,14 @@ int main() {
 			cin>>opcion2;
 		} while(opcion2 != '1'  && opcion2 != '2');
 		
-		if(opcion2 == '1')
+		if(opcion2 == '1'){
 			
 			ViajeTren1.Reserva();
-		
-		else 
+		}else{
 		if(opcion2 == '2')
 			
 		ViajeTren2.Reserva();
-		
+		}
 		break;
 	case 2: 
 		cout<<endl<<"---------------------------Tren 1------------------------------"<<endl;
@@ -181,13 +193,11 @@ int main() {
 		ViajeTren1.compara(ViajeTren2);
 		break;
 	case 5:
-		exit(1);
+		
 	default:
 	cout<<"Esta opcion no esta disponible"<<endl;
 	break;
-		
 	}
-
 	cout<<endl<<"Desea continuar? Digite S o N" <<endl<<endl;
 	cin>> resp;
 	system("cls");
